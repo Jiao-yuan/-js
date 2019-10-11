@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            };
+            say(){
+               alert(`${this.name}说：我今年${this.age}岁了`)
+            }
+        }
+        // console.log(Person.prototype)
+        let zs = new Person('张三',13);
+        zs.say();
+
+
+        class Coder extends Person{ //子类在继承父类时，子类没有调用super之前不会产生this指向
+            constructor(name,age){
+                super(name,age);  //Person.call(this);
+                console.log(this);
+            }
+            coding(){
+                alert(`${this.name}会敲代码`)
+            }
+        }
+        let xm = new Coder('小明',18);
+
+    </script>
+</body>
+</html>
